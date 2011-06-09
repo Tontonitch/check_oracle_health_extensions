@@ -1,0 +1,22 @@
+# ==============================
+# README
+# ==============================
+
+Extensions for check_oracle_health
+
+Available extensions:
+
+ * CheckOracleHealthExt_Job.pm
+ 
+   Description: check failing and broken jobs
+   Exemple:
+   [icinga@server libexec]$ ./check_oracle_health --mode my-job-broken --username=xxxxx --password=xxxxx --connect=XXXX --warning=1 --critical=2
+   WARNING - 1 failing job(s) | broken=0;1;2;0; failing=1;;;0;
+
+ * CheckOracleHealthExt_Lock.pm
+   
+   Description: check blocking locks
+   Exemple:
+   [icinga@server libexec]$ ./check_oracle_health --mode my-lock-blocking --username=xxxxx --password=xxxxx --connect=XXXX
+   OK - no persistent locks detected | nb_locks=0
+   
