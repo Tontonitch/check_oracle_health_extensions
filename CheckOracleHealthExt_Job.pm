@@ -24,6 +24,8 @@ sub nagios {
   my $self = shift;
   my %params = @_;
   if ($params{mode} =~ /my::job::broken/) {
+    unless(defined $self->{warningrange}){$self->{warningrange}=0;}
+    unless(defined $self->{criticalrange}){$self->{criticalrange}=0;}
     if ($self->{broken} >= 1) {
         my $level = $self->check_thresholds($self->{broken},0,0);
         $self->add_nagios($level, (sprintf "%d broken job(s)", $self->{broken}));
